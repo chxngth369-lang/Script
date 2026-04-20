@@ -9,7 +9,6 @@ function updateGallery() {
         const category = card.getAttribute('data-category');
         const isCategoryMatch = (activeCategory === 'all' || category === activeCategory);
         const isSearchMatch = title.includes(searchTerm);
-
         card.style.display = (isCategoryMatch && isSearchMatch) ? "block" : "none";
     });
 }
