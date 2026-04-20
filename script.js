@@ -7,17 +7,12 @@ function updateGallery() {
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText.toLowerCase();
         const category = card.getAttribute('data-category');
-        
         const isCategoryMatch = (activeCategory === 'all' || category === activeCategory);
         const isSearchMatch = title.includes(searchTerm);
 
-        card.style.display = (isCategoryMatch && isSearchMatch) ? "flex" : "none";
-        // ปรับทิศทาง Flex ของ Card ให้เป็นแนวตั้งเสมอ
-        card.style.flexDirection = "column";
+        card.style.display = (isCategoryMatch && isSearchMatch) ? "block" : "none";
     });
 }
-
-document.getElementById('searchInput').addEventListener('keyup', updateGallery);
 
 function filterScripts(category, element) {
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
