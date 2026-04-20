@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star_show | Delta & Foxname</title>
+    <title>Star_show | Premium Scripts Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -34,6 +34,15 @@
                     <li class="nav-item" data-cat="murder-mystery" onclick="filterScripts('murder-mystery', this)">
                         <i class="fas fa-skull"></i> Murder Mystery
                     </li>
+                    <li class="nav-item" data-cat="sailor-piece" onclick="filterScripts('sailor-piece', this)">
+                        <i class="fas fa-anchor"></i> Sailor Piece
+                    </li>
+                    <li class="nav-item" data-cat="blade-ball" onclick="filterScripts('blade-ball', this)">
+                        <i class="fas fa-volleyball-ball"></i> Blade Ball
+                    </li>
+                    <li class="nav-item" data-cat="strongest-battle" onclick="filterScripts('strongest-battle', this)">
+                        <i class="fas fa-hand-rock"></i> The Strongest Battleground
+                    </li>
                 </ul>
             </nav>
         </aside>
@@ -48,18 +57,15 @@
             </header>
 
             <div class="grid" id="scriptGrid">
+                
                 <div class="card" data-category="delta">
                     <div class="card-info">
                         <span class="tag tag-exploit">EXPLOIT</span>
                         <h3>Delta Executor</h3>
                         <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้ง Android และ iOS</p>
                         <div class="btn-group">
-                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')">
-                                <i class="fab fa-android"></i> Android
-                            </button>
-                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')">
-                                <i class="fab fa-apple"></i> iOS
-                            </button>
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')"><i class="fab fa-android"></i> Android</button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')"><i class="fab fa-apple"></i> iOS</button>
                         </div>
                     </div>
                 </div>
@@ -70,12 +76,66 @@
                         <h3>Foxname Hub</h3>
                         <p class="card-desc">สคริปต์สุดเทพสำหรับ MM2 ฟีเจอร์ ESP, Silent Aim และ ไม่มีคีย์</p>
                         <div class="btn-group">
-                            <button class="btn-detail" onclick="openModal('Foxname', 'Murder Mystery', 'https://direct-link.net/1461516/UGfXt2UKtyvH')">
-                                <i class="fas fa-search-plus"></i> ดูรายละเอียด
-                            </button>
+                            <button class="btn-detail" onclick="openModal('Foxname Hub', 'Murder Mystery', 'https://direct-link.net/1461516/UGfXt2UKtyvH')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
                         </div>
                     </div>
                 </div>
+
+                <div class="card" data-category="blade-ball">
+                    <div class="card-info">
+                        <span class="tag tag-map">BLADE BALL</span>
+                        <h3>Nexdo Hub</h3>
+                        <p class="card-desc">สคริปต์ Blade Ball ฟีเจอร์ Auto Parry และ Spam Block</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Nexdo Hub', 'Blade Ball', '#')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>M1 Reset</h3>
+                        <p class="card-desc">สคริปต์ช่วยรีเซ็ตการโจมตี M1 เพื่อคอมโบที่รวดเร็วขึ้น</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('M1 Reset', 'The Strongest Battleground', 'https://link-center.net/1461516/1U29Rt2LyX1q')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>AUTO KYOTO</h3>
+                        <p class="card-desc">ระบบออโต้สกิล Kyoto เพื่อความแม่นยำในการโจมตี</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('AUTO KYOTO', 'The Strongest Battleground', 'https://link-hub.net/1461516/eUwQnLac2zvv')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>SIDE DASH</h3>
+                        <p class="card-desc">สคริปต์ช่วยพุ่งตัวออกด้านข้างเพื่อหลบการโจมตี</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('SIDE DASH', 'The Strongest Battleground', 'https://link-target.net/1461516/A8BU4Ts1b8mg')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>INSTANT LETHAL</h3>
+                        <p class="card-desc">สคริปต์ช่วยกด Lethal ทันทีเพื่อปิดฉากคู่ต่อสู้</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('INSTANT LETHAL', 'The Strongest Battleground', 'https://link-center.net/1461516/esuZCb6Ra05p')"><i class="fas fa-search-plus"></i> ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
     </div>
