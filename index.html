@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star_show | Delta & Foxname Edition</title>
+    <title>🥷 Star_show | Premium Scripts</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
     <div class="app-container">
         <aside class="sidebar">
             <div class="logo"><i class="fab fa-tiktok"></i> Star_show</div>
+            <div class="sidebar-divider"></div>
             <nav>
                 <p class="nav-title">CATEGORIES</p>
                 <ul>
@@ -26,7 +27,7 @@
                         <span>🥷</span> ตัวรัน Delta
                     </li>
                     <li class="nav-item" data-cat="all" onclick="filterScripts('all', this)">
-                        <i class="fas fa-th-large"></i> ทั้งหมด
+                        <i class="fas fa-th-large"></i> สคริปต์ทั้งหมด
                     </li>
                     <li class="nav-item" data-cat="blox-fruits" onclick="filterScripts('blox-fruits', this)">
                         <i class="fas fa-bolt"></i> Blox Fruits
@@ -36,36 +37,51 @@
                     </li>
                 </ul>
             </nav>
+            
+            <div class="sidebar-footer">
+                <div class="stat-box">
+                    <span class="stat-label">Server Status</span>
+                    <span class="stat-value active">ONLINE</span>
+                </div>
+            </div>
         </aside>
 
         <main class="main-content">
             <header>
-                <h1 class="neon-text">คลังแสงสคริปต์</h1>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ของคุณที่นี่...">
+                <div class="welcome-section">
+                    <h1 class="neon-text">ยินดีต้อนรับสู่ <span class="highlight">Star_show</span></h1>
+                    <p>แหล่งรวมสคริปต์ที่ดีที่สุด อัปเดตใหม่ทุกวันเพื่อคุณ</p>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ที่ต้องการ...">
+                    </div>
                 </div>
             </header>
 
             <div class="grid" id="scriptGrid">
                 <div class="card" data-category="delta">
+                    <div class="card-glow"></div>
                     <div class="card-info">
-                        <span class="tag tag-delta">EXPLOIT</span>
+                        <span class="tag tag-delta">BEST EXPLOIT</span>
                         <h3>Delta Executor</h3>
                         <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้งมือถือ Android และ iOS</p>
                         <div class="btn-group">
-                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Delta Executor', 'https://link-center.net/your-android-link')">Android</button>
-                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Delta Executor', 'https://link-center.net/your-ios-link')">iOS</button>
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://link-center.net/your-link')"><i class="fab fa-android"></i> Android</button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://link-center.net/your-link')"><i class="fab fa-apple"></i> iOS</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="card" data-category="murder-mystery">
+                    <div class="card-glow"></div>
                     <div class="card-info">
                         <span class="tag tag-mm2">MURDER MYSTERY 2</span>
-                        <h3>Foxname</h3>
-                        <p class="card-desc">สคริปต์สุดเทพสำหรับ MM2 ฟีเจอร์ ESP, Silent Aim และ Auto Kill</p>
-                        <button class="btn-detail" onclick="openModal('Foxname', 'Murder Mystery', 'https://link-center.net/1461516/Hob4qY0FJ6bI')">ดูรายละเอียด</button>
+                        <h3>Foxname Hub</h3>
+                        <p class="card-desc">ฟีเจอร์ ESP, Silent Aim และ Auto Kill แม่นยำระดับโปร</p>
+                        <button class="btn-detail" onclick="openModal('Foxname', 'Murder Mystery', 'https://link-center.net/1461516/Hob4qY0FJ6bI')">ดูรายละเอียดสคริปต์</button>
                     </div>
                 </div>
             </div>
@@ -74,14 +90,15 @@
 
     <div id="scriptModal" class="modal">
         <div class="modal-content">
+            <div class="modal-header-art"></div>
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Script Name</h2>
-            <p id="modalCategory" style="color: var(--primary); margin: 10px 0;">Category</p>
+            <p id="modalCategory">Category</p>
             <div class="modal-body-text">
-                <p>กดปุ่มด้านล่างเพื่อรับลิงก์ผ่านหน้า Linkvertise</p>
+                <p>กรุณากดปุ่มด้านล่างเพื่อไปยังหน้าดาวน์โหลด</p>
             </div>
             <a id="scriptLink" href="#" target="_blank" class="get-script-btn rgb-animate">
-                <i class="fas fa-download"></i> GET LINK
+                <i class="fas fa-external-link-alt"></i> GET LINK NOW
             </a>
         </div>
     </div>
@@ -89,3 +106,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
