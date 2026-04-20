@@ -9,9 +9,20 @@ function updateGallery() {
         const category = card.getAttribute('data-category');
         const isCategoryMatch = (activeCategory === 'all' || category === activeCategory);
         const isSearchMatch = title.includes(searchTerm);
-        card.style.display = (isCategoryMatch && isSearchMatch) ? "block" : "none";
+
+        if (isCategoryMatch && isSearchMatch) {
+            card.style.display = "flex";
+            // ใส่ Loading Animation
+            card.classList.remove('card-animate');
+            void card.offsetWidth; // Reflow
+            card.classList.add('card-animate');
+        } else {
+            card.style.display = "none";
+        }
     });
 }
+
+document.getElementById('searchInput').addEventListener('keyup', updateGallery);
 
 function filterScripts(category, element) {
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -19,10 +30,10 @@ function filterScripts(category, element) {
     updateGallery();
 }
 
-function openModal(title, category, link) {
+function openModal(title, category, linkvertiseURL) {
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalCategory').innerText = category;
-    document.getElementById('scriptLink').href = link;
+    document.getElementById('scriptLink').href = linkvertiseURL;
     document.getElementById('scriptModal').style.display = "block";
 }
 
