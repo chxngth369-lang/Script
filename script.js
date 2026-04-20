@@ -12,8 +12,9 @@ function updateGallery() {
 
         if (isCategoryMatch && isSearchMatch) {
             card.style.display = "flex";
+            // Trigger Loading Animation
             card.classList.remove('card-animate');
-            void card.offsetWidth; // Reflow for animation
+            void card.offsetWidth; // Reflow to restart animation
             card.classList.add('card-animate');
         } else {
             card.style.display = "none";
