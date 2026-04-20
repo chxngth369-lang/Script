@@ -12,33 +12,27 @@ function updateGallery() {
 
         if (isCategoryMatch && isSearchMatch) {
             card.style.display = "flex";
-            // ใส่ Loading Animation
             card.classList.remove('card-animate');
-            void card.offsetWidth; // Reflow
+            void card.offsetWidth; 
             card.classList.add('card-animate');
         } else {
             card.style.display = "none";
         }
     });
 }
-
 document.getElementById('searchInput').addEventListener('keyup', updateGallery);
-
 function filterScripts(category, element) {
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
     element.classList.add('active');
     updateGallery();
 }
-
 function openModal(title, category, linkvertiseURL) {
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalCategory').innerText = category;
     document.getElementById('scriptLink').href = linkvertiseURL;
     document.getElementById('scriptModal').style.display = "block";
 }
-
 function closeModal() {
     document.getElementById('scriptModal').style.display = "none";
 }
-
 window.onclick = (e) => { if (e.target.className === 'modal') closeModal(); }
