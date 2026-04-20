@@ -12,9 +12,8 @@ function updateGallery() {
 
         if (isCategoryMatch && isSearchMatch) {
             card.style.display = "flex";
-            // ใส่ Loading Animation
             card.classList.remove('card-animate');
-            void card.offsetWidth; // Reflow
+            void card.offsetWidth; // Reflow for animation
             card.classList.add('card-animate');
         } else {
             card.style.display = "none";
