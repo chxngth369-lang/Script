@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star_show | Premium Hub</title>
+    <title>Star_show | Premium Script Hub</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,7 +24,7 @@
         <aside class="sidebar">
             <div class="logo">Star_show</div>
             <nav>
-                <p class="nav-title">Categories</p>
+                <p class="nav-title">CATEGORIES</p>
                 <ul>
                     <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)">
                         <i class="fas fa-th-large"></i> ทั้งหมด
@@ -42,7 +44,7 @@
                 <h1 class="neon-text">คลังแสงสคริปต์</h1>
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Search your scripts here...">
+                    <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ของคุณที่นี่...">
                 </div>
             </header>
 
@@ -52,7 +54,7 @@
                         <span class="tag tag-blox">BLOX FRUITS</span>
                         <h3>Auto Farm Level 1-2550</h3>
                         <p class="card-desc">สคริปต์ฟาร์มเลเวลอัตโนมัติที่ดีที่สุด ปลอดภัย 100%</p>
-                        <button class="btn-detail" onclick="openModal('Auto Farm Level', 'Blox Fruits', 'https://linkvertise.com/your-id/1')">ดูรายละเอียด</button>
+                        <button class="btn-detail" onclick="openModal('Auto Farm Level', 'Blox Fruits', 'https://linkvertise.com/your-link-1')">ดูรายละเอียด</button>
                     </div>
                 </div>
 
@@ -61,7 +63,7 @@
                         <span class="tag tag-pet">PET SIM 99</span>
                         <h3>Auto Hatch & Farm</h3>
                         <p class="card-desc">ฟาร์มเงินและสุ่มสัตว์เลี้ยงอัตโนมัติ</p>
-                        <button class="btn-detail" onclick="openModal('Auto Hatch & Farm', 'Pet Sim 99', 'https://linkvertise.com/your-id/2')">ดูรายละเอียด</button>
+                        <button class="btn-detail" onclick="openModal('Auto Hatch & Farm', 'Pet Sim 99', 'https://linkvertise.com/your-link-2')">ดูรายละเอียด</button>
                     </div>
                 </div>
             </div>
@@ -82,5 +84,6 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
