@@ -1,56 +1,52 @@
-:root {
-    --primary: #00a2ff;
-    --accent: #ff0055;
-    --bg-dark: #050a15;
-    --delta-color: #ff9d00;
+/* --- แก้ไขพื้นหลังดาวตกให้แสดงผล --- */
+.bg-wrapper { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -1; /* อยู่หลังสุดแต่ต้องไม่โดนพื้นหลังอื่นทับ */
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); 
+    overflow: hidden; 
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg-dark); color: white; font-family: 'Kanit', sans-serif; overflow-x: hidden; }
-
-/* Background Animation */
-.bg-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); overflow: hidden; }
-.night { position: relative; width: 100%; height: 100%; transform: rotateZ(45deg); }
-.shooting_star { position: absolute; height: 2px; background: linear-gradient(-45deg, var(--primary), rgba(0,0,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px var(--primary)); animation: tail 2s ease-in-out infinite, shooting 2s ease-in-out infinite; }
-/* (Copy Star Delays From Previous Version) */
-
-/* Sidebar UI */
-.sidebar { width: 280px; min-width: 280px; background: rgba(8, 14, 28, 0.95); backdrop-filter: blur(20px); padding: 40px 20px; border-right: 1px solid rgba(255,255,255,0.05); height: 100vh; position: sticky; top: 0; display: flex; flex-direction: column; }
-.logo { color: white; font-size: 1.8rem; font-weight: bold; text-shadow: 2px 2px var(--accent), -2px -2px var(--primary); text-align: center; margin-bottom: 20px; }
-.sidebar-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin-bottom: 30px; }
-
-.nav-item { padding: 14px 18px; border-radius: 15px; cursor: pointer; color: #888; list-style: none; margin-bottom: 10px; transition: 0.4s; display: flex; align-items: center; gap: 12px; }
-.nav-item:hover, .nav-item.active { background: rgba(0, 162, 255, 0.1); color: var(--primary); transform: translateX(8px); }
-
-/* Main Layout */
-.main-content { flex-grow: 1; padding: 60px 40px; }
-.search-bar { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); padding: 15px 25px; border-radius: 15px; display: flex; align-items: center; border: 1px solid rgba(255, 255, 255, 0.1); max-width: 600px; margin-bottom: 40px; }
-.search-bar input { background: transparent; border: none; color: white; width: 100%; outline: none; margin-left: 15px; }
-
-/* Cards & Buttons */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-.card { background: rgba(255,255,255,0.04); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(12px); transition: 0.4s; overflow: hidden; }
-.card:hover { transform: translateY(-10px); border-color: var(--primary); }
-.card-info { padding: 35px; }
-.tag { font-size: 0.7rem; padding: 4px 10px; border-radius: 5px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-.tag-delta { background: var(--delta-color); color: #000; }
-.tag-mm2 { background: #9c27b0; }
-
-.btn-group { display: flex; gap: 12px; }
-.btn-os { flex: 1; border: none; padding: 12px; border-radius: 12px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
-.btn-android { background: #3ddc84; color: #052010; }
-.btn-ios { background: #fff; color: #000; }
-.btn-detail { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: bold; cursor: pointer; }
-
-/* RGB Button */
-.rgb-animate {
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    background-size: 400%; animation: rgb-glow 8s linear infinite;
-    text-decoration: none; padding: 18px 40px; border-radius: 50px; display: inline-block; margin-top: 25px; font-weight: 600; color: white;
+/* --- แก้ไขโครงสร้าง Container --- */
+.app-container { 
+    display: flex; 
+    min-height: 100vh; 
+    position: relative;
+    z-index: 1;
 }
-@keyframes rgb-glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-/* Modal */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
-.modal-content { background: #0b1221; margin: 20vh auto; padding: 50px; border-radius: 30px; width: 90%; max-width: 400px; text-align: center; position: relative; }
-.close-btn { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #555; }
+/* --- แก้ไข Sidebar ไม่ให้โดนทับ --- */
+.sidebar { 
+    width: 280px; 
+    min-width: 280px; 
+    background: rgba(8, 14, 28, 0.95); 
+    backdrop-filter: blur(20px); 
+    padding: 40px 20px; 
+    border-right: 1px solid rgba(255, 255, 255, 0.05); 
+    height: 100vh; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; /* ดัน Sidebar มาข้างหน้าสุด */
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* --- แก้ไข Main Content ไม่ให้ล้นไปทับ Sidebar --- */
+.main-content { 
+    flex-grow: 1; 
+    padding: 60px 40px; 
+    width: calc(100% - 280px); /* ล็อกขนาดพื้นที่ที่เหลือ */
+    position: relative;
+    z-index: 10;
+}
+
+/* --- ปรับแต่งการ์ดเพิ่มเติม --- */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 25px; 
+    align-items: start;
+}
