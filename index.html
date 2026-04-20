@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="updateGallery()">
 
     <div class="bg-wrapper">
         <div class="night">
@@ -22,11 +22,11 @@
             <nav>
                 <p class="nav-title">CATEGORIES</p>
                 <ul>
-                    <li class="nav-item active" data-cat="delta" onclick="filterScripts('delta', this)">
-                        <span>🥷</span> ตัวรัน Delta
-                    </li>
-                    <li class="nav-item" data-cat="all" onclick="filterScripts('all', this)">
+                    <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)">
                         <i class="fas fa-th-large"></i> ทั้งหมด
+                    </li>
+                    <li class="nav-item" data-cat="delta" onclick="filterScripts('delta', this)">
+                        <span>🥷</span> ตัวรัน Delta
                     </li>
                     <li class="nav-item" data-cat="blox-fruits" onclick="filterScripts('blox-fruits', this)">
                         <i class="fas fa-bolt"></i> Blox Fruits
@@ -43,7 +43,7 @@
                 <h1 class="neon-text">คลังแสงสคริปต์</h1>
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ของคุณที่นี่...">
+                    <input type="text" id="searchInput" placeholder="ค้นหาที่นี่...">
                 </div>
             </header>
 
@@ -52,10 +52,10 @@
                     <div class="card-info">
                         <span class="tag tag-delta">EXPLOIT</span>
                         <h3>Delta Executor</h3>
-                        <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้งมือถือ Android และ iOS</p>
+                        <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้ง Android และ iOS</p>
                         <div class="btn-group">
-                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Delta Executor', 'https://link-center.net/your-android-link')">Android</button>
-                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Delta Executor', 'https://link-center.net/your-ios-link')">iOS</button>
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Delta Executor', '#')">Android</button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Delta Executor', '#')">iOS</button>
                         </div>
                     </div>
                 </div>
