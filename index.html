@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star_show | Classic Hub</title>
+    <title>Star_show | Delta & Foxname Edition</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body onload="updateGallery()">
+<body>
 
     <div class="bg-wrapper">
         <div class="night">
@@ -22,11 +22,11 @@
             <nav>
                 <p class="nav-title">CATEGORIES</p>
                 <ul>
-                    <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)">
-                        <i class="fas fa-th-large"></i> ทั้งหมด
-                    </li>
-                    <li class="nav-item" data-cat="delta" onclick="filterScripts('delta', this)">
+                    <li class="nav-item active" data-cat="delta" onclick="filterScripts('delta', this)">
                         <span>🥷</span> ตัวรัน Delta
+                    </li>
+                    <li class="nav-item" data-cat="all" onclick="filterScripts('all', this)">
+                        <i class="fas fa-th-large"></i> ทั้งหมด
                     </li>
                     <li class="nav-item" data-cat="blox-fruits" onclick="filterScripts('blox-fruits', this)">
                         <i class="fas fa-bolt"></i> Blox Fruits
@@ -40,10 +40,10 @@
 
         <main class="main-content">
             <header>
-                <h1>คลังแสงสคริปต์</h1>
+                <h1 class="neon-text">คลังแสงสคริปต์</h1>
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="ค้นหาที่นี่...">
+                    <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ของคุณที่นี่...">
                 </div>
             </header>
 
@@ -52,19 +52,19 @@
                     <div class="card-info">
                         <span class="tag tag-delta">EXPLOIT</span>
                         <h3>Delta Executor</h3>
-                        <p>ตัวรันเสถียร รองรับ Android และ iOS</p>
+                        <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้งมือถือ Android และ iOS</p>
                         <div class="btn-group">
-                            <button class="btn-android" onclick="openModal('Delta Android', 'Exploit', 'LINK_HERE')">Android</button>
-                            <button class="btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'LINK_HERE')">iOS</button>
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Delta Executor', 'https://link-center.net/your-android-link')">Android</button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Delta Executor', 'https://link-center.net/your-ios-link')">iOS</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="card" data-category="murder-mystery">
                     <div class="card-info">
-                        <span class="tag tag-mm2">MM2</span>
-                        <h3>Foxname Hub</h3>
-                        <p>ฟีเจอร์ ESP, Silent Aim และ Auto Kill</p>
+                        <span class="tag tag-mm2">MURDER MYSTERY 2</span>
+                        <h3>Foxname</h3>
+                        <p class="card-desc">สคริปต์สุดเทพสำหรับ MM2 ฟีเจอร์ ESP, Silent Aim และ Auto Kill</p>
                         <button class="btn-detail" onclick="openModal('Foxname', 'Murder Mystery', 'https://link-center.net/1461516/Hob4qY0FJ6bI')">ดูรายละเอียด</button>
                     </div>
                 </div>
@@ -76,8 +76,13 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Script Name</h2>
-            <p id="modalCategory" style="color: #00a2ff; margin: 10px 0;">Category</p>
-            <a id="scriptLink" href="#" target="_blank" class="get-script-btn rgb-animate">GET SCRIPT</a>
+            <p id="modalCategory" style="color: var(--primary); margin: 10px 0;">Category</p>
+            <div class="modal-body-text">
+                <p>กดปุ่มด้านล่างเพื่อรับลิงก์ผ่านหน้า Linkvertise</p>
+            </div>
+            <a id="scriptLink" href="#" target="_blank" class="get-script-btn rgb-animate">
+                <i class="fas fa-download"></i> GET LINK
+            </a>
         </div>
     </div>
 
