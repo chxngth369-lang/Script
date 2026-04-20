@@ -1,15 +1,19 @@
 function updateGallery() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const activeNavItem = document.querySelector('.nav-item.active');
-    const activeCategory = activeNavItem.getAttribute('data-cat');
+    const activeCategory = activeNavItem ? activeNavItem.getAttribute('data-cat') : 'all';
     const cards = document.querySelectorAll('.card');
 
     cards.forEach(card => {
         const title = card.querySelector('h3').innerText.toLowerCase();
         const category = card.getAttribute('data-category');
+        
         const isCategoryMatch = (activeCategory === 'all' || category === activeCategory);
         const isSearchMatch = title.includes(searchTerm);
+
         card.style.display = (isCategoryMatch && isSearchMatch) ? "flex" : "none";
+        // ปรับทิศทาง Flex ของ Card ให้เป็นแนวตั้งเสมอ
+        card.style.flexDirection = "column";
     });
 }
 
@@ -21,10 +25,10 @@ function filterScripts(category, element) {
     updateGallery();
 }
 
-function openModal(title, category, linkvertiseURL) {
+function openModal(title, category, link) {
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalCategory').innerText = category;
-    document.getElementById('scriptLink').href = linkvertiseURL;
+    document.getElementById('scriptLink').href = link;
     document.getElementById('scriptModal').style.display = "block";
 }
 
