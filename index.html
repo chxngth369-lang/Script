@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="updateGallery()">
 
     <div class="bg-wrapper">
         <div class="night">
@@ -23,11 +23,11 @@
             <nav>
                 <p class="nav-title">CATEGORIES</p>
                 <ul>
-                    <li class="nav-item active" data-cat="delta" onclick="filterScripts('delta', this)">
-                        <span>🥷</span> ตัวรัน Delta
-                    </li>
-                    <li class="nav-item" data-cat="all" onclick="filterScripts('all', this)">
+                    <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)">
                         <i class="fas fa-th-large"></i> สคริปต์ทั้งหมด
+                    </li>
+                    <li class="nav-item" data-cat="delta" onclick="filterScripts('delta', this)">
+                        <span>🥷</span> ตัวรัน Delta
                     </li>
                     <li class="nav-item" data-cat="blox-fruits" onclick="filterScripts('blox-fruits', this)">
                         <i class="fas fa-bolt"></i> Blox Fruits
@@ -37,7 +37,6 @@
                     </li>
                 </ul>
             </nav>
-            
             <div class="sidebar-footer">
                 <div class="stat-box">
                     <span class="stat-label">Server Status</span>
@@ -52,18 +51,14 @@
                     <h1 class="neon-text">ยินดีต้อนรับสู่ <span class="highlight">Star_show</span></h1>
                     <p>แหล่งรวมสคริปต์ที่ดีที่สุด อัปเดตใหม่ทุกวันเพื่อคุณ</p>
                 </div>
-                
-                <div class="search-container">
-                    <div class="search-bar">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ที่ต้องการ...">
-                    </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ค้นหาสคริปต์ที่ต้องการ...">
                 </div>
             </header>
 
             <div class="grid" id="scriptGrid">
                 <div class="card" data-category="delta">
-                    <div class="card-glow"></div>
                     <div class="card-info">
                         <span class="tag tag-delta">BEST EXPLOIT</span>
                         <h3>Delta Executor</h3>
@@ -76,7 +71,6 @@
                 </div>
 
                 <div class="card" data-category="murder-mystery">
-                    <div class="card-glow"></div>
                     <div class="card-info">
                         <span class="tag tag-mm2">MURDER MYSTERY 2</span>
                         <h3>Foxname Hub</h3>
@@ -90,10 +84,9 @@
 
     <div id="scriptModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header-art"></div>
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Script Name</h2>
-            <p id="modalCategory">Category</p>
+            <p id="modalCategory" style="color: var(--primary);">Category</p>
             <div class="modal-body-text">
                 <p>กรุณากดปุ่มด้านล่างเพื่อไปยังหน้าดาวน์โหลด</p>
             </div>
