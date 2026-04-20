@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star_show | Delta & Foxname</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body onload="updateGallery()">
 
+    <div class="bg-wrapper">
+        <div class="night">
+            <div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo"><i class="fab fa-tiktok"></i> Star_show</div>
+            <nav>
+                <p class="nav-title">CATEGORIES</p>
+                <ul>
+                    <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)">
+                        <i class="fas fa-th-large"></i> ทั้งหมด
+                    </li>
+                    <li class="nav-item" data-cat="delta" onclick="filterScripts('delta', this)">
+                        <span>🥷</span> ตัวรัน Delta
+                    </li>
+                    <li class="nav-item" data-cat="blox-fruits" onclick="filterScripts('blox-fruits', this)">
+                        <i class="fas fa-bolt"></i> Blox Fruits
+                    </li>
+                    <li class="nav-item" data-cat="murder-mystery" onclick="filterScripts('murder-mystery', this)">
+                        <i class="fas fa-skull"></i> Murder Mystery
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1 class="neon-text">คลังแสงสคริปต์</h1>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ค้นหาที่นี่...">
+                </div>
+            </header>
+
+            <div class="grid" id="scriptGrid">
+                <div class="card" data-category="delta">
+                    <div class="card-info">
+                        <span class="tag tag-exploit">EXPLOIT</span>
+                        <h3>Delta Executor</h3>
+                        <p class="card-desc">ตัวรันยอดนิยม เสถียรที่สุด รองรับทั้ง Android และ iOS</p>
+                        <div class="btn-group">
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', '#')">
+                                <i class="fab fa-android"></i> Android
+                            </button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', '#')">
+                                <i class="fab fa-apple"></i> iOS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="murder-mystery">
+                    <div class="card-info">
+                        <span class="tag tag-map">MURDER MYSTERY 2</span>
+                        <h3>Foxname Hub</h3>
+                        <p class="card-desc">สคริปต์สุดเทพสำหรับ MM2 ฟีเจอร์ ESP, Silent Aim และ Auto Kill</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Foxname', 'Murder Mystery', 'https://link-center.net/1461516/Hob4qY0FJ6bI')">
+                                <i class="fas fa-search-plus"></i> ดูรายละเอียด
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="scriptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Script Name</h2>
+            <p id="modalCategory" style="color: var(--primary); margin: 10px 0;">Category</p>
+            <div class="modal-body-text"><p>กดปุ่มด้านล่างเพื่อรับลิงก์ผ่านหน้า Linkvertise</p></div>
+            <a id="scriptLink" href="#" target="_blank" class="get-script-btn rgb-animate">
+                <i class="fas fa-download"></i> GET LINK
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
