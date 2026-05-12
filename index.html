@@ -96,17 +96,32 @@
 </div>
 
 
-                <div class="card" data-category="delta">
-                    <div class="card-info">
-                        <span class="tag tag-exploit">EXPLOIT</span>
-                        <h3>Delta Executor</h3>
-                        <p class="card-desc">ฟีเจอร์เด่น: ตัวรันระดับ Premium เสถียรที่สุด รองรับการรันสคริปต์ได้ลื่นไหลทั้ง Android และ iOS</p>
-                        <div class="btn-group">
-                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')"><i class="fab fa-android"></i> Android</button>
-                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')"><i class="fab fa-apple"></i> iOS</button>
-                        </div>
-                    </div>
-                </div>
+<!-- ค้นหา Card ของ Delta Executor แล้วแทนที่ด้วยโค้ดชุดนี้ -->
+<div class="card" data-category="delta">
+    <div class="card-info">
+        <span class="tag tag-exploit">EXPLOIT</span>
+        <h3>Delta Executor</h3>
+        <p class="card-desc">ฟีเจอร์เด่น: ตัวรันระดับ Premium เสถียรที่สุด รองรับการรันสคริปต์ได้ลื่นไหลทั้ง Android และ iOS</p>
+        <div class="btn-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <!-- แถวที่ 1: ตัวติดตั้งหลัก -->
+            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')">
+                <i class="fab fa-android"></i> Android
+            </button>
+            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')">
+                <i class="fab fa-apple"></i> iOS
+            </button>
+            
+            <!-- แถวที่ 2: เครื่องมือเสริม -->
+            <button class="btn-detail" style="background: #5865F2; font-size: 0.8rem;" onclick="openModal('Anti-revoke DNS', 'iOS Setup', 'https://www.mediafire.com/file/yb8lna8zv5tc62z/Anti-revoke+DNS.mobileconfig/file')">
+                <i class="fas fa-shield-alt"></i> DNS (iOS)
+            </button>
+            <button class="btn-detail" style="background: #00b894; font-size: 0.8rem;" onclick="openModal('KSign', 'iOS Signer', 'https://khoindvn.io.vn/')">
+                <i class="fas fa-pen-nib"></i> KSign
+            </button>
+        </div>
+    </div>
+</div>
+
 
                 <div class="card" data-category="murder-mystery">
                     <div class="card-info">
