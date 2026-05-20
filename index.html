@@ -10,6 +10,29 @@
 </head>
 <body onload="updateGallery()">
 
+    <div id="rulesModal" class="rules-popup-container">
+        <div class="rules-popup-content">
+            <h2 class="rules-title"><i class="fas fa-exclamation-triangle"></i> คำเตือน</h2>
+            <p class="rules-subtitle">ห้ามพิมพ์สคริปต์ใต้คอมเมนต์ เนื่องจากเป็นกฎของทาง TikTok</p>
+            
+            <div class="rules-img-container">
+                <img src="Podcast Planner Presentation.png" alt="Rules Evidence" class="rules-img">
+            </div>
+
+            <div class="rules-agreement">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="agreeCheckbox" onchange="checkRulesReady()">
+                    <span class="custom-checkbox"></span>
+                    ฉันยอมรับข้อตกลง
+                </label>
+            </div>
+
+            <button id="enterSiteBtn" class="btn-enter-site" disabled onclick="closeRulesModal()">
+                เข้าสู่เว็บไซต์ <span id="countdownText">(5วิ)</span>
+            </button>
+        </div>
+    </div>
+
     <div class="bg-wrapper">
         <div class="night">
             <div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div><div class="shooting_star"></div>
@@ -35,7 +58,6 @@
                     <li class="nav-item" data-cat="dead-rail" onclick="filterScripts('dead-rail', this)"><i class="fas fa-train"></i> Dead Rail</li>
                     <li class="nav-item" data-cat="bedwars" onclick="filterScripts('bedwars', this)"><i class="fas fa-bed"></i> Bedwars</li>
                     <li class="nav-item" data-cat="zombie-arena" onclick="filterScripts('zombie-arena', this)"><i class="fas fa-biohazard"></i> Survive Zombie Arena</li>
-
                 </ul>
             </nav>
         </aside>
@@ -87,43 +109,37 @@
                 </div>
 
                 <div class="card" data-category="sailor-piece">
-    <div class="card-info">
-        <span class="tag tag-map">SAILOR PIECE</span>
-        <h3>Alchemy Hub</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบปรุงยาอัตโนมัติ (Auto Alchemy), Farm Mastery และฟังก์ชันช่วยเล่นเสริมประสิทธิภาพ</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Alchemy Hub (Sailor Piece)', 'Sailor Piece', 'https://link-center.net/1461516/wsW4D7iDANdK')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">SAILOR PIECE</span>
+                        <h3>Alchemy Hub</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบปรุงยาอัตโนมัติ (Auto Alchemy), Farm Mastery และฟังก์ชันช่วยเล่นเสริมประสิทธิภาพ</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Alchemy Hub (Sailor Piece)', 'Sailor Piece', 'https://link-center.net/1461516/wsW4D7iDANdK')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
-
-<!-- ค้นหา Card ของ Delta Executor แล้วแทนที่ด้วยโค้ดชุดนี้ -->
-<div class="card" data-category="delta">
-    <div class="card-info">
-        <span class="tag tag-exploit">EXPLOIT</span>
-        <h3>Delta Executor</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ตัวรันระดับ Premium เสถียรที่สุด รองรับการรันสคริปต์ได้ลื่นไหลทั้ง Android และ iOS</p>
-        <div class="btn-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-            <!-- แถวที่ 1: ตัวติดตั้งหลัก -->
-            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')">
-                <i class="fab fa-android"></i> Android
-            </button>
-            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')">
-                <i class="fab fa-apple"></i> iOS
-            </button>
-            
-            <!-- แถวที่ 2: เครื่องมือเสริม -->
-            <button class="btn-detail" style="background: #5865F2; font-size: 0.8rem;" onclick="openModal('Anti-revoke DNS', 'iOS Setup', 'https://www.mediafire.com/file/yb8lna8zv5tc62z/Anti-revoke+DNS.mobileconfig/file')">
-                <i class="fas fa-shield-alt"></i> DNS (iOS)
-            </button>
-            <button class="btn-detail" style="background: #00b894; font-size: 0.8rem;" onclick="openModal('KSign', 'iOS Signer', 'https://khoindvn.io.vn/')">
-                <i class="fas fa-pen-nib"></i> KSign (iOS)
-            </button>
-        </div>
-    </div>
-</div>
-
+                <div class="card" data-category="delta">
+                    <div class="card-info">
+                        <span class="tag tag-exploit">EXPLOIT</span>
+                        <h3>Delta Executor</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ตัวรันระดับ Premium เสถียรที่สุด รองรับการรันสคริปต์ได้ลื่นไหลทั้ง Android และ iOS</p>
+                        <div class="btn-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <button class="btn-os btn-android" onclick="openModal('Delta Android', 'Exploit', 'https://direct-link.net/1461516/aT7c6YSz9mq5')">
+                                <i class="fab fa-android"></i> Android
+                            </button>
+                            <button class="btn-os btn-ios" onclick="openModal('Delta iOS', 'Exploit', 'https://direct-link.net/1461516/zhT73R2BMvLg')">
+                                <i class="fab fa-apple"></i> iOS
+                            </button>
+                            <button class="btn-detail" style="background: #5865F2; font-size: 0.8rem;" onclick="openModal('Anti-revoke DNS', 'iOS Setup', 'https://www.mediafire.com/file/yb8lna8zv5tc62z/Anti-revoke+DNS.mobileconfig/file')">
+                                <i class="fas fa-shield-alt"></i> DNS (iOS)
+                            </button>
+                            <button class="btn-detail" style="background: #00b894; font-size: 0.8rem;" onclick="openModal('KSign', 'iOS Signer', 'https://khoindvn.io.vn/')">
+                                <i class="fas fa-pen-nib"></i> KSign (iOS)
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="murder-mystery">
                     <div class="card-info">
@@ -181,16 +197,17 @@
                 </div>
 
                 <div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>FPS BOOST +</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ช่วยเพิ่มเฟรมเรต (FPS), ลดอาการแลค, ลบเงาและเอฟเฟกต์ที่ไม่จำเป็นเพื่อให้เล่นได้อย่างลื่นไหลที่สุด</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('FPS BOOST +', 'TSB', 'https://direct-link.net/1461516/yPZO38lSdtI4')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
-
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>FPS BOOST +</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ช่วยเพิ่มเฟรมเรต (FPS), ลดอาการแลค, ลบเงาและเอฟเฟกต์ที่ไม่จำเป็นเพื่อให้เล่นได้อย่างลื่นไหลที่สุด</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('FPS BOOST +', 'TSB', 'https://direct-link.net/1461516/yPZO38lSdtI4')">
+                                ดูรายละเอียด
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="strongest-battle">
                     <div class="card-info">
@@ -204,62 +221,59 @@
                 </div>
 
                 <div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>Loop Dash</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบพุ่งตัวแบบต่อเนื่อง (Infinite Dash) ช่วยให้เคลื่อนที่ได้รวดเร็วและหลบหลีกได้ไร้ขีดจำกัด</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Loop Dash', 'TSB', 'https://link-target.net/1461516/IyvTlj2jf3U6')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
-
-<div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>Gojo Tech</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: รวมเทคนิคคอมโบของตัวละคร Gojo อัตโนมัติ, ระบบช่วยเล็งสกิล และการทำ Perfect Timing</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Gojo Tech', 'TSB', 'https://link-center.net/1461516/Qy7p9UQXKaHf')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
-
-                <!-- Animation TSB (TSB) -->
-<div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>Animation TSB</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: เปลี่ยนแอนิเมชันการเคลื่อนไหวและท่าทางการโจมตีให้สวยงามและดูสมจริงมากยิ่งขึ้น</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Animation TSB', 'TSB', 'https://link-center.net/1461516/DZ87nip1LEku')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
-
-
-                <!-- Instant Twisted (TSB) -->
-<div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>Instant Twisted</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบใช้สกิล Twisted ทันทีแบบไร้ดีเลย์ เพิ่มความได้เปรียบในการทำคอมโบและจังหวะปะทะ</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Instant Twisted', 'TSB', 'https://link-hub.net/1461516/DH0CwVf9Bn4m')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>Loop Dash</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบพุ่งตัวแบบต่อเนื่อง (Infinite Dash) ช่วยให้เคลื่อนที่ได้รวดเร็วและหลบหลีกได้ไร้ขีดจำกัด</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Loop Dash', 'TSB', 'https://link-target.net/1461516/IyvTlj2jf3U6')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="strongest-battle">
-    <div class="card-info">
-        <span class="tag tag-map">TSB</span>
-        <h3>Oreo tech</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบช่วยคอมโบเทคนิคพิเศษ, ปรับแต่งการใช้สกิลให้ต่อเนื่อง และเพิ่มประสิทธิภาพในการ PvP</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Oreo tech', 'TSB', 'https://direct-link.net/1461516/YlyIOm6GT9aY')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>Gojo Tech</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: รวมเทคนิคคอมโบของตัวละคร Gojo อัตโนมัติ, ระบบช่วยเล็งสกิล และการทำ Perfect Timing</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Gojo Tech', 'TSB', 'https://link-center.net/1461516/Qy7p9UQXKaHf')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>Animation TSB</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: เปลี่ยนแอนิเมชันการเคลื่อนไหวและท่าทางการโจมตีให้สวยงามและดูสมจริงมากยิ่งขึ้น</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Animation TSB', 'TSB', 'https://link-center.net/1461516/DZ87nip1LEku')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>Instant Twisted</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบใช้สกิล Twisted ทันทีแบบไร้ดีเลย์ เพิ่มความได้เปรียบในการทำคอมโบและจังหวะปะทะ</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Instant Twisted', 'TSB', 'https://link-hub.net/1461516/DH0CwVf9Bn4m')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" data-category="strongest-battle">
+                    <div class="card-info">
+                        <span class="tag tag-map">TSB</span>
+                        <h3>Oreo tech</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบช่วยคอมโบเทคนิคพิเศษ, ปรับแต่งการใช้สกิลให้ต่อเนื่อง และเพิ่มประสิทธิภาพในการ PvP</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Oreo tech', 'TSB', 'https://direct-link.net/1461516/YlyIOm6GT9aY')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="evade">
                     <div class="card-info">
@@ -273,28 +287,26 @@
                 </div>
 
                 <div class="card" data-category="evade">
-    <div class="card-info">
-        <span class="tag tag-map">EVADE</span>
-        <h3>Komat hub (เมนูภาษาไทย)</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm เงิน/เลเวล, ชุบเพื่อนอัตโนมัติ และ ESP มองทะลุ ใช้งานง่ายด้วยเมนูไทยทั้งหมด</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Komat hub (เมนูภาษาไทย)', 'Evade', 'https://direct-link.net/1461516/2wDkeoQ2wHQw')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">EVADE</span>
+                        <h3>Komat hub</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm เงิน/เลเวล, ชุบเพื่อนอัตโนมัติ และ ESP มองทะลุ ใช้งานง่ายด้วยเมนูไทยทั้งหมด</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Komat hub', 'Evade', 'https://direct-link.net/1461516/2wDkeoQ2wHQw')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="natural-disaster">
-    <div class="card-info">
-        <span class="tag tag-map">NATURAL DISASTER</span>
-        <h3>Black Hole</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบดูดไอเทม/ผู้เล่นรอบตัว, ปรับแรงโน้มถ่วง และฟังก์ชันสร้างความปั่นป่วนในเซิร์ฟเวอร์</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Black Hole', 'Natural Disaster', 'https://link-center.net/1461516/adQcjlJGfwVu')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
-
-
+                    <div class="card-info">
+                        <span class="tag tag-map">NATURAL DISASTER</span>
+                        <h3>Black Hole</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบดูดไอเทม/ผู้เล่นรอบตัว, ปรับแรงโน้มถ่วง และฟังก์ชันสร้างความปั่นป่วนในเซิร์ฟเวอร์</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Black Hole', 'Natural Disaster', 'https://link-center.net/1461516/adQcjlJGfwVu')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="natural-disaster">
                     <div class="card-info">
@@ -307,63 +319,64 @@
                     </div>
                 </div>
 
-                <!-- Ajjans Hub (Kick a Lucky Block) -->
-<div class="card" data-category="lucky-block">
-    <div class="card-info">
-        <span class="tag tag-map">LUCKY BLOCK</span>
-        <h3>Ajjans Hub</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Kick อัตโนมัติ, เปิดกล่อง Lucky Block รวดเร็ว และฟังก์ชันช่วยฟาร์มเพื่อสะสมไอเทมระดับ Rare</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Ajjans Hub', 'Kick a Lucky Block', 'https://link-target.net/1461516/Xoa7lPeCdFn5')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                <div class="card" data-category="lucky-block">
+                    <div class="card-info">
+                        <span class="tag tag-map">LUCKY BLOCK</span>
+                        <h3>Ajjans Hub</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Kick อัตโนมัติ, เปิดกล่อง Lucky Block รวดเร็ว และฟังก์ชันช่วยเล่นเสริมประสิทธิภาพ</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Ajjans Hub', 'Kick a Lucky Block', 'https://link-target.net/1461516/Xoa7lPeCdFn5')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Tora Is Me Hub (Kick a Lucky Block) -->
-<div class="card" data-category="lucky-block">
-    <div class="card-info">
-        <span class="tag tag-map">LUCKY BLOCK</span>
-        <h3>Tora Is Me Hub</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm ที่เสถียรที่สุด, Auto Kick, เปิดกล่องอัตโนมัติ และเมนูการตั้งค่าที่ใช้งานง่าย</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Tora Is Me Hub', 'Kick a Lucky Block', 'https://direct-link.net/1461516/IxXhWLGNBm0N')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                <div class="card" data-category="lucky-block">
+                    <div class="card-info">
+                        <span class="tag tag-map">LUCKY BLOCK</span>
+                        <h3>Tora Is Me Hub</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm ที่เสถียรที่สุด, Auto Kick, เปิดกล่องอัตโนมัติ และเมนูการตั้งค่าที่ใช้งานง่าย</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Tora Is Me Hub', 'Kick a Lucky Block', 'https://direct-link.net/1461516/IxXhWLGNBm0N')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="dead-rail">
-    <div class="card-info">
-        <span class="tag tag-map">DEAD RAIL</span>
-        <h3>Ringta Hub no key</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm, มองทะลุ (ESP) ไอเทมและซอมบี้, และฟังก์ชันช่วยเอาชีวิตรอดบนรถไฟ</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Ringta Hub no key', 'Dead Rail', 'https://direct-link.net/1461516/kLVwVreExsOt')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">DEAD RAIL</span>
+                        <h3>Ringta Hub no key</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm, มองทะลุ (ESP) ไอเทมและซอมบี้, และฟังก์ชันช่วยเอาชีวิตรอดบนรถไฟ</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Ringta Hub no key', 'Dead Rail', 'https://direct-link.net/1461516/kLVwVreExsOt')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="bedwars">
-    <div class="card-info">
-        <span class="tag tag-map">BEDWARS</span>
-        <h3>Vapevoidware</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: สุดยอดสคริปต์สาย PvP, Kill Aura, Speed, Auto Bridge และฟังก์ชันโกง Bedwars ครบวงจร</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Vapevoidware', 'Bedwars', 'https://direct-link.net/1461516/FZQfjWNrZnol')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">BEDWARS</span>
+                        <h3>Vapevoidware</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: สุดยอดสคริปต์สาย PvP, Kill Aura, Speed, Auto Bridge และฟังก์ชันโกง Bedwars ครบวงจร</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Vapevoidware', 'Bedwars', 'https://direct-link.net/1461516/FZQfjWNrZnol')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card" data-category="zombie-arena">
-    <div class="card-info">
-        <span class="tag tag-map">ZOMBIE ARENA</span>
-        <h3>Tora is me</h3>
-        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm กำจัดซอมบี้อัตโนมัติ, หลบการโจมตี, และฟังก์ชันช่วยฟาร์มเงินและเลเวลได้อย่างรวดเร็ว</p>
-        <div class="btn-group">
-            <button class="btn-detail" onclick="openModal('Tora is me', 'Survive Zombie Arena', 'https://link-target.net/1461516/J9vfU1V60jGs')">ดูรายละเอียด</button>
-        </div>
-    </div>
-</div>
+                    <div class="card-info">
+                        <span class="tag tag-map">ZOMBIE ARENA</span>
+                        <h3>Tora is me</h3>
+                        <p class="card-desc">ฟีเจอร์เด่น: ระบบ Auto Farm กำจัดซอมบี้อัตโนมัติ, หลบการโจมตี, และฟังก์ชันช่วยฟาร์มเงินและเลเวลได้อย่างรวดเร็ว</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Tora is me', 'Survive Zombie Arena', 'https://link-target.net/1461516/J9vfU1V60jGs')">ดูรายละเอียด</button>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </main>
+    </div>
 
     <div id="scriptModal" class="modal">
         <div class="modal-content">
