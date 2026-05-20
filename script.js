@@ -35,7 +35,7 @@ function checkRulesReady() {
     }
 }
 
-// 🔥 ปรับปรุงฟังก์ชันปิดป๊อปอัปคำเตือน: เพิ่มแอนิเมชัน Fade Out ขาออก
+// ปรับปรุงฟังก์ชันปิดป๊อปอัปคำเตือน: เพิ่มแอนิเมชันจางออกอย่างนุ่มนวล
 function closeRulesModal() {
     const modal = document.getElementById("rulesModal");
     const appContainer = document.querySelector(".app-container");
@@ -60,7 +60,7 @@ function closeRulesModal() {
 startRulesCountdown();
 
 
-// --- โค้ดเดิมของระบบแกลเลอรีสคริปต์และโมดอล ---
+// --- ระบบแกลเลอรีสคริปต์และการค้นหา ---
 function updateGallery() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const activeNavItem = document.querySelector('.nav-item.active');
@@ -92,17 +92,42 @@ function filterScripts(category, element) {
     updateGallery();
 }
 
+
+// 🌟 ฟังก์ชันเปิดโมดอลรายละเอียดสคริปต์ (เวอร์ชันเพิ่มแอนิเมชันพรีเมียม)
 function openModal(title, category, linkvertiseURL) {
+    const modal = document.getElementById('scriptModal');
+    
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalCategory').innerText = category;
     document.getElementById('scriptLink').href = linkvertiseURL;
-    document.getElementById('scriptModal').style.display = "block";
+    
+    if (modal) {
+        modal.style.display = "block";
+        // ลบคลาสขาออกเดิม (ถ้ามี) แล้วใส่คลาสขาเข้าเพื่อให้ค่อยๆ โผล่มานุ่มๆ
+        modal.classList.remove('modal-fade-out');
+        modal.classList.add('modal-fade-in');
+    }
 }
 
+// 🌟 ฟังก์ชันปิดโมดอลรายละเอียดสคริปต์ (ทำให้ค่อยๆ ยุบและจางหายไป ไม่วับหายทันที)
 function closeModal() {
-    document.getElementById('scriptModal').style.display = "none";
+    const modal = document.getElementById('scriptModal');
+    
+    if (modal) {
+        // ใส่คลาสขาออกเพื่อให้กล่องค่อยๆ ยุบและจางลง
+        modal.classList.remove('modal-fade-in');
+        modal.classList.add('modal-fade-out');
+        
+        // รอให้แอนิเมชันเล่นจบ 0.3 วินาที (300ms) แล้วค่อยสั่งปิดการแสดงผลจริงๆ
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 300);
+    }
 }
 
+// ปิดโมดอลเมื่อคลิกพื้นที่ว่างข้างนอกกล่อง (เพิ่มแอนิเมชันตอนปิดด้วย)
 window.onclick = (e) => { 
-    if (e.target.className === 'modal') closeModal();  
+    if (e.target.className === 'modal modal-fade-in') {
+        closeModal();
+    }
 }
