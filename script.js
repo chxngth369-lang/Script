@@ -15,7 +15,7 @@ function startRulesCountdown() {
             } else {
                 clearInterval(countdownTimer);
                 countdownTextEl.innerText = "";
-                checkRulesReady(); // ตรวจสอบสถานะปุ่มเผื่อกรณีผู้ใช้กดติ๊กไว้ล่วงหน้า
+                checkRulesReady();
             }
         }
     }, 1000);
@@ -35,13 +35,28 @@ function checkRulesReady() {
     }
 }
 
-// ปิดป๊อปอัปคำเตือนและเริ่มใช้งานหน้าเว็บหลัก
+// 🔥 ปรับปรุงฟังก์ชันปิดป๊อปอัปคำเตือน: เพิ่มแอนิเมชัน Fade Out ขาออก
 function closeRulesModal() {
     const modal = document.getElementById("rulesModal");
-    if (modal) modal.style.display = "none";
+    const appContainer = document.querySelector(".app-container");
+    
+    if (modal) {
+        // ใส่ Class สั่งให้ป๊อปอัปค่อยๆ จางและยุบตัวหายไป
+        modal.classList.add("popup-fade-out");
+        
+        // ใส่ Class สั่งให้เนื้อหาเว็บหลักค่อยๆ slide โผล่ขึ้นมาอย่างนุ่มนวล
+        if (appContainer) {
+            appContainer.classList.add("app-content-show");
+        }
+        
+        // รอให้แอนิเมชันเล่นจบ (0.5 วินาที) แล้วค่อยซ่อน Element
+        setTimeout(function() {
+            modal.style.display = "none";
+        }, 500);
+    }
 }
 
-// สั่งให้ฟังก์ชันเริ่มนับเวลาทำงานทันที (ไม่รอคำสั่งโหลดหน้าเว็บแบบเก่า ป้องกันเวลานิ่งค้างบน GitHub/Vercel)
+// สั่งให้ฟังก์ชันเริ่มนับเวลาทำงานทันที
 startRulesCountdown();
 
 
