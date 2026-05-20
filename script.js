@@ -35,21 +35,18 @@ function checkRulesReady() {
     }
 }
 
-// ปรับปรุงฟังก์ชันปิดป๊อปอัปคำเตือน: เพิ่มแอนิเมชันจางออกอย่างนุ่มนวล
+// ฟังก์ชันปิดป๊อปอัปคำเตือน: เพิ่มแอนิเมชันจางออกอย่างนุ่มนวล
 function closeRulesModal() {
     const modal = document.getElementById("rulesModal");
     const appContainer = document.querySelector(".app-container");
     
     if (modal) {
-        // ใส่ Class สั่งให้ป๊อปอัปค่อยๆ จางและยุบตัวหายไป
         modal.classList.add("popup-fade-out");
         
-        // ใส่ Class สั่งให้เนื้อหาเว็บหลักค่อยๆ slide โผล่ขึ้นมาอย่างนุ่มนวล
         if (appContainer) {
             appContainer.classList.add("app-content-show");
         }
         
-        // รอให้แอนิเมชันเล่นจบ (0.5 วินาที) แล้วค่อยซ่อน Element
         setTimeout(function() {
             modal.style.display = "none";
         }, 500);
@@ -93,7 +90,7 @@ function filterScripts(category, element) {
 }
 
 
-// 🌟 ฟังก์ชันเปิดโมดอลรายละเอียดสคริปต์ (เวอร์ชันเพิ่มแอนิเมชันพรีเมียม)
+// 🌟 [แก้ไขจุดนี้] ฟังก์ชันเปิดโมดอลรายละเอียดสคริปต์ (เน้นนุ่มนวล ค่อยๆ เปิด)
 function openModal(title, category, linkvertiseURL) {
     const modal = document.getElementById('scriptModal');
     
@@ -103,31 +100,36 @@ function openModal(title, category, linkvertiseURL) {
     
     if (modal) {
         modal.style.display = "block";
-        // ลบคลาสขาออกเดิม (ถ้ามี) แล้วใส่คลาสขาเข้าเพื่อให้ค่อยๆ โผล่มานุ่มๆ
         modal.classList.remove('modal-fade-out');
-        modal.classList.add('modal-fade-in');
+        
+        // ใช้ setTimeout เล็กน้อยเพื่อให้ CSS จับจังหวะเปลี่ยนผ่าน (Transition) ได้สมูทขึ้น
+        setTimeout(function() {
+            modal.classList.add('modal-fade-in');
+        }, 10);
     }
 }
 
-// 🌟 ฟังก์ชันปิดโมดอลรายละเอียดสคริปต์ (ทำให้ค่อยๆ ยุบและจางหายไป ไม่วับหายทันที)
+// 🌟 [แก้ไขจุดนี้] ฟังก์ชันปิดโมดอลรายละเอียดสคริปต์ (หน่วงเวลาให้เล่นแอนิเมชันจนจบ)
 function closeModal() {
     const modal = document.getElementById('scriptModal');
     
     if (modal) {
-        // ใส่คลาสขาออกเพื่อให้กล่องค่อยๆ ยุบและจางลง
         modal.classList.remove('modal-fade-in');
         modal.classList.add('modal-fade-out');
         
-        // รอให้แอนิเมชันเล่นจบ 0.3 วินาที (300ms) แล้วค่อยสั่งปิดการแสดงผลจริงๆ
+        // ปรับเวลาหน่วงเพิ่มขึ้นเป็น 400ms (0.4 วินาที) เพื่อให้เห็นเอฟเฟกต์เฟดออกชัดเจน ไม่หายวับ
         setTimeout(function() {
             modal.style.display = "none";
-        }, 300);
+            modal.classList.remove('modal-fade-out'); // รีเซ็ตคลาส
+        }, 400);
     }
 }
 
-// ปิดโมดอลเมื่อคลิกพื้นที่ว่างข้างนอกกล่อง (เพิ่มแอนิเมชันตอนปิดด้วย)
+// 🌟 [แก้ไขจุดนี้] ปิดโมดอลเมื่อคลิกพื้นที่ว่างข้างนอก (ดักจับคลาสใหม่อย่างถูกต้องเพื่อให้เล่นอนิเมชันตอนปิด)
 window.onclick = (e) => { 
-    if (e.target.className === 'modal modal-fade-in') {
+    const modal = document.getElementById('scriptModal');
+    // ถ้าคลิกโดนพื้นที่โมดอลชั้นนอก (ส่วนพื้นหลังเบลอ) ให้สั่งปิดแบบสมูท
+    if (e.target === modal) {
         closeModal();
     }
 }
