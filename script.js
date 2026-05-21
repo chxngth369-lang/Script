@@ -1,7 +1,7 @@
-let timeLeft = 5;
+let timeLeft = 10; // 🔥 ปรับเพิ่มเวลาเป็น 10 วินาทีตรงนี้เรียบร้อยแล้วครับ
 let countdownTimer;
 
-// ฟังก์ชันควบคุมการนับเวลาถอยหลัง 5 วินาทีของป๊อปอัปคำเตือน
+// ฟังก์ชันควบคุมการนับเวลาถอยหลัง 10 วินาทีของป๊อปอัปคำเตือน
 function startRulesCountdown() {
     if (countdownTimer) clearInterval(countdownTimer); 
     
@@ -90,7 +90,7 @@ function filterScripts(category, element) {
 }
 
 
-// 🌟 [แก้ไขจุดนี้] ฟังก์ชันเปิดโมดอลรายละเอียดสคริปต์ (เน้นนุ่มนวล ค่อยๆ เปิด)
+// ฟังก์ชันเปิดโมดอลรายละเอียดสคริปต์ (เน้นนุ่มนวล ค่อยๆ เปิด)
 function openModal(title, category, linkvertiseURL) {
     const modal = document.getElementById('scriptModal');
     
@@ -102,14 +102,13 @@ function openModal(title, category, linkvertiseURL) {
         modal.style.display = "block";
         modal.classList.remove('modal-fade-out');
         
-        // ใช้ setTimeout เล็กน้อยเพื่อให้ CSS จับจังหวะเปลี่ยนผ่าน (Transition) ได้สมูทขึ้น
         setTimeout(function() {
             modal.classList.add('modal-fade-in');
         }, 10);
     }
 }
 
-// 🌟 [แก้ไขจุดนี้] ฟังก์ชันปิดโมดอลรายละเอียดสคริปต์ (หน่วงเวลาให้เล่นแอนิเมชันจนจบ)
+// ฟังก์ชันปิดโมดอลรายละเอียดสคริปต์ (หน่วงเวลาให้เล่นแอนิเมชันจนจบ)
 function closeModal() {
     const modal = document.getElementById('scriptModal');
     
@@ -117,18 +116,16 @@ function closeModal() {
         modal.classList.remove('modal-fade-in');
         modal.classList.add('modal-fade-out');
         
-        // ปรับเวลาหน่วงเพิ่มขึ้นเป็น 400ms (0.4 วินาที) เพื่อให้เห็นเอฟเฟกต์เฟดออกชัดเจน ไม่หายวับ
         setTimeout(function() {
             modal.style.display = "none";
-            modal.classList.remove('modal-fade-out'); // รีเซ็ตคลาส
+            modal.classList.remove('modal-fade-out');
         }, 400);
     }
 }
 
-// 🌟 [แก้ไขจุดนี้] ปิดโมดอลเมื่อคลิกพื้นที่ว่างข้างนอก (ดักจับคลาสใหม่อย่างถูกต้องเพื่อให้เล่นอนิเมชันตอนปิด)
+// ปิดโมดอลเมื่อคลิกพื้นที่ว่างข้างนอก
 window.onclick = (e) => { 
     const modal = document.getElementById('scriptModal');
-    // ถ้าคลิกโดนพื้นที่โมดอลชั้นนอก (ส่วนพื้นหลังเบลอ) ให้สั่งปิดแบบสมูท
     if (e.target === modal) {
         closeModal();
     }
