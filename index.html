@@ -47,6 +47,7 @@
                 <p class="nav-title">CATEGORIES</p>
                 <ul>
                     <li class="nav-item active" data-cat="all" onclick="filterScripts('all', this)"><i class="fas fa-th-large"></i> ทั้งหมด</li>
+                    <li class="nav-item" data-cat="delta" onclick="filterScripts('delta', this)"><span>🥷</span> ตัวรัน Delta</li>
                     <li class="nav-item" data-cat="strongest-battle" onclick="filterScripts('strongest-battle', this)"><i class="fas fa-hand-rock"></i> TSB</li>
                     <li class="nav-item" data-cat="throw-food" onclick="filterScripts('throw-food', this)"><i class="fas fa-paw"></i> Throw Food For Animals</li>
                 </ul>
@@ -64,7 +65,20 @@
 
             <div class="script-grid" id="gallery">
 
-                <!-- การ์ดใบที่ 1: TSB Halloween -->
+                <!-- การ์ดใบที่ 1: ตัวรัน Delta + E-Sign (2 ปุ่มในการ์ดเดียว) -->
+                <div class="card" data-category="delta">
+                    <div class="card-info">
+                        <span class="tag tag-map">ตัวรัน Delta</span>
+                        <h3>Delta Executor iOS + E-Sign</h3>
+                        <p class="card-desc">ตัวรันสคริปต์ Delta สำหรับ iOS (v2.747.1486 ไฟล์ .IPA) พร้อมลิงก์โหลด E-Sign และ DNS สำหรับติดตั้ง</p>
+                        <div class="btn-group">
+                            <button class="btn-detail" onclick="openModal('Delta Executor iOS (v2.747.1486)', 'ตัวรัน Delta', 'https://www.mediafire.com/file/v9s28nwu82ky2nh/Delta-2.747.1486.ipa/file')"><i class="fas fa-download"></i> โหลด Delta</button>
+                            <button class="btn-detail" onclick="openModal('E-Sign / KSign & DNS', 'เครื่องมือติดตั้ง iOS', 'https://khoindvn.io.vn')"><i class="fas fa-certificate"></i> โหลด E-Sign</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- การ์ดใบที่ 2: TSB Halloween -->
                 <div class="card" data-category="strongest-battle">
                     <div class="card-info">
                         <span class="tag tag-map">TSB</span>
@@ -76,7 +90,7 @@
                     </div>
                 </div>
 
-                <!-- การ์ดใบที่ 2: Auto Side Dash -->
+                <!-- การ์ดใบที่ 3: Auto Side Dash -->
                 <div class="card" data-category="strongest-battle">
                     <div class="card-info">
                         <span class="tag tag-map">TSB</span>
@@ -88,7 +102,7 @@
                     </div>
                 </div>
 
-                <!-- การ์ดใบที่ 3: Throw Food For Animals - Auto Farm -->
+                <!-- การ์ดใบที่ 4: Throw Food For Animals - Auto Farm -->
                 <div class="card" data-category="throw-food">
                     <div class="card-info">
                         <span class="tag tag-map">Throw Food For Animals</span>
